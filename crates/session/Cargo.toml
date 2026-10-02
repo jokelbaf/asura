@@ -1,0 +1,22 @@
+[package]
+name = "session"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+license.workspace = true
+homepage.workspace = true
+
+[dependencies]
+async-channel.workspace = true
+parking_lot.workspace = true
+tempfile.workspace = true
+time.workspace = true
+flate2.workspace = true
+brotli.workspace = true
+zstd.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+postcard.workspace = true
+base64.workspace = true
+url.workspace = true
+regex.workspace = true

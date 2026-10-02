@@ -1,0 +1,13 @@
+[package]
+name = "common"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+license.workspace = true
+homepage.workspace = true
+
+[features]
+user = ["dep:aya"]
+
+[dependencies]
+aya = { workspace = true, optional = true }

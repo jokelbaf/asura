@@ -1,0 +1,15 @@
+[package]
+name = "authority"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+license.workspace = true
+homepage.workspace = true
+
+[dependencies]
+rcgen.workspace = true
+rustls.workspace = true
+lru.workspace = true
+parking_lot.workspace = true
+time.workspace = true
+thiserror.workspace = true

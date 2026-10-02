@@ -1,0 +1,24 @@
+[package]
+name = "helper"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+license.workspace = true
+homepage.workspace = true
+
+[[bin]]
+name = "asura-helper"
+path = "src/main.rs"
+
+[dependencies]
+capture.workspace = true
+trust.workspace = true
+aya.workspace = true
+anyhow.workspace = true
+libc.workspace = true
+aya-obj.workspace = true
+x509-parser.workspace = true
+
+[build-dependencies]
+aya-build.workspace = true
+ebpf.workspace = true

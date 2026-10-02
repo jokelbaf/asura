@@ -1,0 +1,16 @@
+[package]
+name = "trust"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+license.workspace = true
+homepage.workspace = true
+
+[dependencies]
+sha1.workspace = true
+hex.workspace = true
+base64.workspace = true
+time.workspace = true
+serde_json.workspace = true
+directories.workspace = true
+thiserror.workspace = true

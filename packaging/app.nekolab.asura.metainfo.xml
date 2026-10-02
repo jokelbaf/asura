@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>app.nekolab.asura</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <name>Asura</name>
+  <summary>Inspect the traffic of Wine and Proton applications</summary>
+  <developer id="app.nekolab">
+    <name>Nekolab</name>
+  </developer>
+  <description>
+    <p>
+      Asura captures the HTTP and HTTPS traffic of selected programs without a system proxy.
+      It is built for Windows applications and games running under Wine and Proton, and works
+      with native Linux programs too.
+    </p>
+    <ul>
+      <li>Capture a launched program, a running process or a Steam game with asura-run %command%</li>
+      <li>Decrypt HTTPS with a local certificate authority installed into Wine prefixes</li>
+      <li>Inspect HTTP/1.1, HTTP/2 and WebSocket traffic with headers, bodies and timing</li>
+      <li>Filter requests with a query language and export them as HAR</li>
+    </ul>
+  </description>
+  <url type="homepage">https://asura.nekolab.app</url>
+  <launchable type="desktop-id">app.nekolab.asura.desktop</launchable>
+  <provides>
+    <binary>asura</binary>
+    <binary>asura-run</binary>
+  </provides>
+  <requires>
+    <kernel version="6.5" compare="ge">Linux</kernel>
+  </requires>
+  <categories>
+    <category>Network</category>
+    <category>Development</category>
+  </categories>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="0.1.0" date="2026-10-01"/>
+  </releases>
+</component>

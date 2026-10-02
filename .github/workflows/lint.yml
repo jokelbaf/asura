@@ -1,0 +1,32 @@
+name: Lint code
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    steps:
+      - name: Install system dependencies
+        run: pacman -Syu --noconfirm --needed base-devel git rustup bpf-linker gtk4 libadwaita gtksourceview5
+
+      - uses: actions/checkout@v7
+
+      - name: Set up Rust
+        run: |
+          rustup toolchain install nightly --profile minimal --component clippy,rust-src
+          rustup default nightly
+          ebpf_toolchain=$(sed -n 's/^_toolchain=//p' packaging/arch/PKGBUILD)
+          rustup toolchain install "$ebpf_toolchain" --profile minimal --component rust-src
+          echo "ASURA_EBPF_TOOLCHAIN=$ebpf_toolchain" >> "$GITHUB_ENV"
+          echo "CARGO_TARGET_BPFEL_UNKNOWN_NONE_LINKER=/usr/bin/bpf-linker" >> "$GITHUB_ENV"
+
+      - name: Run Clippy
+        run: cargo clippy --locked --all-targets --all-features -- -D warnings
+
+      - name: Run Clippy on eBPF programs
+        run: cargo clippy --locked -p ebpf --target bpfel-unknown-none -Z build-std=core -- -D warnings

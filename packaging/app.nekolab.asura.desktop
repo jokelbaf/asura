@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Asura
+GenericName=Traffic Inspector
+Comment=Inspect the HTTP and HTTPS traffic of Wine and Proton applications
+Exec=asura %F
+Icon=app.nekolab.asura
+Terminal=false
+StartupNotify=true
+Categories=Network;Monitor;GTK;
+Keywords=http;https;traffic;proxy;interceptor;fiddler;wine;proton;steam;har;
+MimeType=application/x-asura-sessions;application/x-har+json;

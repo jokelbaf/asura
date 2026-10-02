@@ -1,0 +1,12 @@
+[package]
+name = "formats"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+license.workspace = true
+homepage.workspace = true
+
+[dependencies]
+flate2.workspace = true
+url.workspace = true
+memchr.workspace = true

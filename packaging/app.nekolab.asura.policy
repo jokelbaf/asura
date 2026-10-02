@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+  <vendor>Asura</vendor>
+  <icon_name>app.nekolab.asura</icon_name>
+
+  <action id="app.nekolab.asura.capture">
+    <description>Capture the network traffic of applications</description>
+    <message>Authentication is required to capture the network traffic of applications</message>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/asura/asura-helper</annotate>
+    <annotate key="org.freedesktop.policykit.exec.argv1">capture</annotate>
+  </action>
+
+  <action id="app.nekolab.asura.trust">
+    <description>Change whether the system trusts the Asura certificate authority</description>
+    <message>Authentication is required to change whether the system trusts the Asura certificate authority</message>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/asura/asura-helper</annotate>
+    <annotate key="org.freedesktop.policykit.exec.argv1">trust</annotate>
+  </action>
+</policyconfig>

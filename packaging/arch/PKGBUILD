@@ -1,0 +1,30 @@
+pkgname=asura
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='Inspect the HTTP and HTTPS traffic of Wine and Proton applications'
+arch=('x86_64')
+url='https://asura.nekolab.app'
+license=('GPL-3.0-only')
+depends=('gtk4' 'libadwaita' 'gtksourceview5' 'polkit' 'systemd' 'hicolor-icon-theme' 'gcc-libs' 'glibc')
+makedepends=('rustup' 'bpf-linker')
+optdepends=('wine: run Windows programs')
+options=('!lto' '!debug')
+
+_root="$startdir/../.."
+_toolchain=nightly-2026-08-04
+
+prepare() {
+  rustup toolchain install "$_toolchain" --profile minimal --component rust-src
+}
+
+build() {
+  cd "$_root"
+  RUSTUP_TOOLCHAIN="$_toolchain" ASURA_EBPF_TOOLCHAIN="$_toolchain" \
+    CARGO_TARGET_BPFEL_UNKNOWN_NONE_LINKER=/usr/bin/bpf-linker \
+    cargo build --release --locked
+}
+
+package() {
+  cd "$_root"
+  DESTDIR="$pkgdir" sh packaging/install.sh
+}

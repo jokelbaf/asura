@@ -1,0 +1,15 @@
+[package]
+name = "capture"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+license.workspace = true
+homepage.workspace = true
+
+[dependencies]
+common = { workspace = true, features = ["user"] }
+aya.workspace = true
+rustix.workspace = true
+zbus.workspace = true
+parking_lot.workspace = true
+thiserror.workspace = true
